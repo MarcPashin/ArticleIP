@@ -19,27 +19,28 @@ export const LandingNavbar =
 
     return (
         <nav className="bg-[#111827] p-4 bg-transparent flex items-center justify-between">
-            <Link href="/" className="flex items-center bg-[#111827]">
-            <div className="relative h-3 w-3 bg-[#111827]">
-                
-            </div>
-                  <Image 
-                    src="/HireAI logo -white.png" 
-                    alt="HireAI Logo" 
-                    width={150} 
-                    height={50}  
-                    priority      // Ensures the image is loaded quickly
-                />
-            </Link>
+    <Link href="/" className="flex items-center">
+        <div className="text-4xl font-serif font-bold text-black tracking-tight">
+            ArticleIP
+        </div>
+    </Link>
 
-            <div className="flex items-center gap-x-2">
-            <Link href="/sign-up">
-                <Button variant="outline" className="rounded-full">
-                    Get Started
-                </Button>
-                </Link>
-            </div>
+    <div className="flex items-center gap-x-2">
+    <Link href="/sign-up">
+        <Button 
+            variant="articleipSolid" 
+            className="group relative overflow-hidden shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300 bg-black text-white hover:bg-[#feefd4] hover:text-black border-2 border-black h-12 px-8 text-lg font-medium"
+        >
+            Get Started
+        </Button>
+    </Link>
+</div>
         </nav>
     )
 }
+
+//<div className="flex items-center gap-x-2">
+           
+//
+//
 

@@ -19,12 +19,17 @@ const buttonVariants = cva(
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
         blue: "bg-blue-700 text-white hover:bg-blue-600",
+        articleip: 
+          "bg-transparent border-3 border-[#0B3B9C] text-[#0B3B9C] hover:bg-[#0B3B9C] hover:text-white transition-all duration-300 ease-out rounded-full shadow-md hover:shadow-xl font-serif tracking-wider font-semibold transform hover:scale-105 hover:border-transparent active:scale-95",
+        articleipSolid:
+          "bg-[#0B3B9C] text-white border-3 border-[#0B3B9C] hover:bg-white hover:text-[#0B3B9C] transition-all duration-300 ease-out rounded-full shadow-md hover:shadow-xl font-serif tracking-wider font-semibold transform hover:scale-105 active:scale-95",
       },
       size: {
         default: "h-10 px-4 py-2",
         sm: "h-9 rounded-md px-3",
         lg: "h-11 rounded-md px-8",
         icon: "h-10 w-10",
+        articleip: "h-16 px-10 text-xl", // Increased height and font size
       },
     },
     defaultVariants: {
