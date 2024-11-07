@@ -74,20 +74,14 @@ export const LandingHero = () => {
                     transition={{ delay: 0.4 }}
                     className="flex flex-col sm:flex-row justify-center gap-4 pt-4" /* Reduced pt from 8 to 4 and gap from 6 to 4 */
                 >
-                    <Button 
-                        variant="articleipSolid" 
-                        size="articleip"
-                        className="group relative overflow-hidden shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300 bg-black text-white hover:bg-[#feefd4] hover:text-black border-2 border-black"
-                    >
-                        <span className="relative z-10">Get Started Free</span>
-                    </Button>
+              
                     
                     <Button 
                         variant="articleip" 
                         size="articleip"
                         className="group relative overflow-hidden transform hover:scale-105 transition-all duration-300 border-2 border-[#1a1f36] text-[#1a1f36] hover:bg-[black] hover:text-white"
                     >
-                        Schedule Demo
+                        Waitlist Sign-Up
                         <span className="ml-2 group-hover:translate-x-1 transition-transform duration-300">→</span>
                     </Button>
                 </motion.div>
