@@ -8,8 +8,8 @@ import Head from "next/head";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "HireAI",
-  description: "Finding you the perfect candidate quicker and cheaper than ever before, so you can focus on what really matters.",
+  title: "ArticleIP",
+  description: "The world's most accurate ",
 };
 
 export default function RootLayout({

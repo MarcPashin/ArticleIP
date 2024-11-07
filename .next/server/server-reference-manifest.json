@@ -2,15 +2,17 @@
   "node": {
     "ff9dc5c0a40f9ef5266d2f4320ce3bf78f197e42": {
       "workers": {
+        "app/(landing)/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fmarc%2FDocuments%2FGitHub%2FArticleIP%2Fnode_modules%2F%40clerk%2Fnextjs%2Fdist%2Fesm%2Fapp-router%2Fserver-actions%2FinvalidateCache.js%22%2C%5B%22invalidateCacheAction%22%5D%5D%5D&__client_imported__=true!",
         "app/_not-found/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fmarc%2FDocuments%2FGitHub%2FArticleIP%2Fnode_modules%2F%40clerk%2Fnextjs%2Fdist%2Fesm%2Fapp-router%2Fserver-actions%2FinvalidateCache.js%22%2C%5B%22invalidateCacheAction%22%5D%5D%5D&__client_imported__=true!",
-        "app/(landing)/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fmarc%2FDocuments%2FGitHub%2FArticleIP%2Fnode_modules%2F%40clerk%2Fnextjs%2Fdist%2Fesm%2Fapp-router%2Fserver-actions%2FinvalidateCache.js%22%2C%5B%22invalidateCacheAction%22%5D%5D%5D&__client_imported__=true!"
+        "app/(auth)/(routes)/sign-up/[[...sign-up]]/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fmarc%2FDocuments%2FGitHub%2FArticleIP%2Fnode_modules%2F%40clerk%2Fnextjs%2Fdist%2Fesm%2Fapp-router%2Fserver-actions%2FinvalidateCache.js%22%2C%5B%22invalidateCacheAction%22%5D%5D%5D&__client_imported__=true!"
       },
       "layer": {
+        "app/(landing)/page": "action-browser",
         "app/_not-found/page": "action-browser",
-        "app/(landing)/page": "action-browser"
+        "app/(auth)/(routes)/sign-up/[[...sign-up]]/page": "action-browser"
       }
     }
   },
   "edge": {},
-  "encryptionKey": "Mbq8e0/4WnIwZgg/OJlmQDR9hIyz0SrR2kCPTgmiwH0="
+  "encryptionKey": "63kiRQLVBRTR0LIFS2Vyy4HWuiA2/xljkl1HDjih1v0="
 }
