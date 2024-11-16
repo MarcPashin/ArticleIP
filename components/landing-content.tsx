@@ -100,7 +100,7 @@ export const HomePageContent = () => {
                 ))}
               </ul>
               <Button
-                variant="primary"
+                variant="default"
                 className="mt-4 w-full bg-[#1a1f36] text-white hover:bg-black"
               >
                 {section.cta}
