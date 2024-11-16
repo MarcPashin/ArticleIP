@@ -4,6 +4,7 @@ import { ChevronDoubleDownIcon } from '@heroicons/react/outline';
 import TypewriterComponent from "typewriter-effect";
 import { Button } from "./ui/button";
 import { motion } from "framer-motion";
+import Link from 'next/link';
 
 export const LandingHero = () => {
     const scrollDown = () => {
@@ -27,7 +28,7 @@ export const LandingHero = () => {
                         animate={{ opacity: 1, y: 0 }}
                         className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-serif leading-none tracking-tight text-[#1a1f36]" /* Added leading-none */
                     >
-                        A Patent Tool For
+                        A Patent Generation Tool For
                     </motion.h1>
                     
                     <div className="relative h-24 flex items-center justify-center"> {/* Reduced height from 32 to 24 */}
@@ -76,6 +77,8 @@ export const LandingHero = () => {
                 >
               
                     
+                  
+                <Link href="https://ezc76sua2m5.typeform.com/to/qUFqcb1G" passHref>
                     <Button 
                         variant="articleip" 
                         size="articleip"
@@ -84,6 +87,7 @@ export const LandingHero = () => {
                         Waitlist Sign-Up
                         <span className="ml-2 group-hover:translate-x-1 transition-transform duration-300">→</span>
                     </Button>
+                </Link>
                 </motion.div>
 
                 {/* Features list */}
@@ -93,7 +97,7 @@ export const LandingHero = () => {
                     transition={{ delay: 0.6 }}
                     className="flex justify-center gap-8 pt-6" /* Reduced pt from 12 to 6 */
                 >
-                    {['AI-Powered', '24/7 Support', 'Trusted by 1000+'].map((feature, index) => (
+                    {['AI-Powered', '24/7 Support', 'Trusted by Pear VC'].map((feature, index) => (
                         <div key={index} className="flex items-center gap-2">
                             <div className="w-2 h-2 rounded-full bg-[#1a1f36]" />
                             <span className="text-sm font-medium text-[#1a1f36]">{feature}</span>
