@@ -1,3 +1,4 @@
+import HomePageContent from "@/components/landing-content";
 import { LandingHero } from "@/components/landing-hero";
 import { LandingNavbar } from "@/components/landing-navbar";
 import { Button } from "@/components/ui/button";
@@ -11,7 +12,7 @@ const LandingPage = ( ) => {
         
         <LandingHero />
       
-
+        <HomePageContent />
        </div>
     );
 }
