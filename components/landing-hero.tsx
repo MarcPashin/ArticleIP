@@ -33,27 +33,34 @@ export const LandingHero = () => {
                     
                     <div className="relative h-24 flex items-center justify-center"> {/* Reduced height from 32 to 24 */}
                         <div className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-serif relative text-[#1a1f36]">
-                            <TypewriterComponent
-                                options={{
-                                    strings: [
-                                        "Inventors",
-                                        "Attorneys",
-                                        "Innovators",
-                                        "Entrepreneurs",
-                                        "Researchers",
-                                        "Students",
-                                        "Small Businesses",
-                                        "Patent Agents",
-                                        "Tech Startups",
-                                        "IP Professionals",
-                                        "Everyone"
-                                    ],
-                                    autoStart: true,
-                                    loop: true,
-                                    deleteSpeed: 50,
-                                    delay: 80
-                                }}
-                            />
+                        <TypewriterComponent
+    onInit={(typewriter) => {
+        typewriter
+            .typeString("Inventors")
+            .pauseFor(1000)
+            .deleteAll()
+            .typeString("Attorneys")
+            .pauseFor(1000)
+            .deleteAll()
+            .typeString("Innovators")
+            .pauseFor(1000)
+            .deleteAll()
+            
+            .typeString("Everyone") // Final string
+            
+            .start();
+            
+        // Ensure no loop or restart behavior is triggered.
+    }}
+    options={{
+        autoStart: true,
+        loop: false, // Ensures no automatic looping
+        delay: 80,
+        deleteSpeed: 50,
+    }}
+/>
+
+
                         </div>
                     </div>
                 </div>
