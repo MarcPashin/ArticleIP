@@ -42,23 +42,28 @@ export const LandingHero = () => {
             .typeString("Attorneys")
             .pauseFor(1000)
             .deleteAll()
-            .typeString("Innovators")
-            .pauseFor(1000)
-            .deleteAll()
-            
             .typeString("Everyone") // Final string
-            
+            .callFunction(() => {
+                // Change the cursor to a period and stop it from blinking
+                const cursor = document.querySelector(".Typewriter__cursor") as HTMLElement;
+                if (cursor) {
+                    cursor.textContent = "."; // Replace the cursor with a period
+                    cursor.style.animation = "none"; // Disable blinking
+                }
+            })
             .start();
-            
-        // Ensure no loop or restart behavior is triggered.
     }}
     options={{
         autoStart: true,
-        loop: false, // Ensures no automatic looping
+        loop: false, // Do not repeat
         delay: 80,
         deleteSpeed: 50,
+        cursor: "|", // Initial cursor
     }}
 />
+
+
+
 
 
                         </div>
