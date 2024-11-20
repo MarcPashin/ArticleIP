@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Button } from "./ui/button";
+import Link from "next/link";
 
 export const HomePageContent = () => {
   return (
@@ -99,12 +100,14 @@ export const HomePageContent = () => {
                   <li key={idx}>{point}</li>
                 ))}
               </ul>
-              <Button
-                variant="articleip"
-                className="mt-4 w-full bg-[#1a1f36] text-white hover:bg-black"
-              >
-                {section.cta}
-              </Button>
+              <Link href="https://ezc76sua2m5.typeform.com/to/qUFqcb1G" passHref>
+                <Button
+                  variant="articleip"
+                  className="mt-4 w-full bg-[#1a1f36] text-white hover:bg-black"
+                >
+                  {section.cta}
+                </Button>
+              </Link>
             </div>
           ))}
         </motion.div>
