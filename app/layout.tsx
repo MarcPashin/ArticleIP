@@ -8,11 +8,11 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "ArticleIP | AI-Powered Patent Generation Tool",
-  description: "Streamline your patent search and innovation process with our powerful tools.",
+  description: "ArticleIP is the ultimate AI-powered tool for generating accurate patents, trusted by top researchers and attorneys worldwide. Streamline your innovation process today!",
   metadataBase: new URL("https://www.articleip.com"), // Your production domain
   openGraph: {
     title: "ArticleIP | AI-Powered Patent Generation Tool",
-    description: "Streamline your patent search and innovation process with our powerful tools.",
+    description: "ArticleIP is the ultimate AI-powered tool for generating accurate patents, trusted by top researchers and attorneys worldwide. Streamline your innovation process today!",
     url: "https://www.articleip.com",
     images: [
       {
