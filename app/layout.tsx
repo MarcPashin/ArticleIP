@@ -9,13 +9,14 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "ArticleIP | AI-Powered Patent Generation Tool",
   description: "Streamline your patent search and innovation process with our powerful tools.",
+  metadataBase: new URL("https://www.articleip.com"), // Your production domain
   openGraph: {
     title: "ArticleIP | AI-Powered Patent Generation Tool",
     description: "Streamline your patent search and innovation process with our powerful tools.",
     url: "https://www.articleip.com",
     images: [
       {
-        url: "/ArticleIPPreview.png", // Correct path for images in the `public` folder
+        url: "https://www.articleip.com/ArticleIPPreview.png", // Absolute URL
         width: 1200,
         height: 630,
         alt: "A Patent Generation Tool For Everyone",
@@ -43,7 +44,7 @@ export default function RootLayout({
           <meta property="og:title" content="ArticleIP | AI-Powered Patent Generation Tool" />
           <meta property="og:description" content="Streamline your patent search and innovation process with our powerful tools." />
           <meta property="og:url" content="https://www.articleip.com" />
-          <meta property="og:image" content="/ArticleIPPreview.png" />
+          <meta property="og:image" content="https://www.articleip.com/ArticleIPPreview.png" />
           <meta property="og:image:alt" content="A Patent Generation Tool For Everyone" />
           <meta property="og:type" content="website" />
 
