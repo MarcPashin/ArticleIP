@@ -9,7 +9,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "ArticleIP",
-  description: "The world's most accurate ",
+  description: "The world's most accurate patent generator.",
 };
 
 export default function RootLayout({
