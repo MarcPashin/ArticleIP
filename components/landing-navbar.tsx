@@ -26,7 +26,7 @@ export const LandingNavbar =
     </Link>
 
     <div className="flex items-center gap-x-2">
-    <Link href="/sign-up">
+    <a href="https://journalpatent.web.app/login">
         <Button 
             variant="articleipSolid" 
             className="group relative overflow-hidden shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300 bg-black text-white hover:bg-[#feefd4] hover:text-black border-2 border-black h-12 px-8 text-lg font-medium"
