@@ -33,7 +33,7 @@ export const LandingNavbar =
         >
             Get Started
         </Button>
-    </Link>
+    </a>
 </div>
         </nav>
     )
