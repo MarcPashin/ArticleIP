@@ -105,7 +105,7 @@ export const LandingHero = () => {
                     transition={{ delay: 0.6 }}
                     className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-6 text-center"
                 >
-                    {['AI-Powered', 'Vetted by Top Lawyers', 'Backed by Pear VC', 'Trusted by Leading Biotech Startups'].map((feature, index) => (
+                    {['AI-Powered', 'Vetted by Top Lawyers', 'Backed by StartX', 'Trusted by Leading Biotech Startups'].map((feature, index) => (
                         <div key={index} className="flex items-center justify-center gap-2">
                             <div className="w-2 h-2 rounded-full bg-[#1a1f36]" />
                             <span className="text-sm font-medium text-[#1a1f36]">{feature}</span>
