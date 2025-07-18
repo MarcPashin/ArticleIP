@@ -36,27 +36,15 @@ export const LandingNavbar = () => {
 
     return (
         <>
-            <header className="fixed top-0 left-0 w-full z-50">
-                <nav className="mx-auto mt-4 max-w-7xl px-6 py-3 rounded-2xl bg-white/5 backdrop-blur-lg border border-white/10 shadow-md">
+            <header className="fixed top-0 left-0 w-full z-50 pt-4">
+                <nav className="mx-auto max-w-7xl px-6 py-4 rounded-2xl bg-white/5 backdrop-blur-lg border border-white/10 shadow-md">
                     <div className="flex items-center justify-between">
                         <Link href="/" className="text-2xl font-serif font-bold tracking-tight text-white">
                             ArticleIP
                         </Link>
                         <div className="hidden md:flex items-center gap-x-8">
-                            <NavLinkDropdown title="Platform">
-                                <DropdownItem href="/platform">Overview</DropdownItem>
-                                <DropdownItem href="/platform/patent-drafting">Patent Drafting</DropdownItem>
-                                <DropdownItem href="/platform/patent-management">Patent Management</DropdownItem>
-                                <DropdownItem href="/platform/analytics">Analytics</DropdownItem>
-                                <DropdownItem href="/platform/bespoke-solutions">Bespoke Model Solutions</DropdownItem>
-                            </NavLinkDropdown>
-                            <NavLinkDropdown title="Company">
-                                <DropdownItem href="/company">About</DropdownItem>
-                                <DropdownItem href="/company/security-privacy">Security & Privacy</DropdownItem>
-                                <DropdownItem href="/company/advisors">Advisors</DropdownItem>
-                            </NavLinkDropdown>
-                            
-                            {/* UPDATED LINKS */}
+                            <NavLink href="/#platform">Platform</NavLink>
+                            <NavLink href="/#company">About</NavLink>
                             <NavLink href="/#resources">Resources</NavLink>
                             <NavLink href="/blog">Blog</NavLink>
                         </div>

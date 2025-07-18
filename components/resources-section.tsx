@@ -3,7 +3,12 @@
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import { LockClosedIcon } from '@heroicons/react/24/outline';
+import { 
+    LockClosedIcon,
+    ShieldCheckIcon,
+    ScaleIcon,
+    BuildingOfficeIcon
+} from '@heroicons/react/24/outline';
 
 
 export const ResourcesSection = () => {
@@ -13,30 +18,64 @@ export const ResourcesSection = () => {
     };
 
     return (
-         <motion.section 
-            id="resources" 
-            // CORRECTED: Removed bottom margin (mb-12). Spacing is now
-            // controlled by the parent <main> tag for better consistency.
-            className="mt-24 max-w-5xl mx-auto text-center"
+        <motion.section
+            id="resources"
+            className="mt-32 max-w-7xl mx-auto"
             variants={sectionVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
         >
-            <div className="p-10 rounded-3xl bg-gradient-to-b from-[#2a304e] to-[#1e243f] border border-white/10 shadow-xl">
-                {/* ... (rest of the component is the same) */}
-                <LockClosedIcon className="h-10 w-10 text-white/80 mx-auto mb-4"/>
-                <h2 className="text-3xl font-bold text-white">Secure Collaboration is Paramount</h2>
-                <p className="mt-4 max-w-2xl mx-auto text-gray-300">
-                    We integrate seamlessly into your strategic workflow. Work done with legal counsel can be protected by <b className="text-white">attorney-client privilege</b>, and our enterprise-grade security features ensure your most sensitive data is always safe.
+            <div className="text-center mb-12">
+                <h2 className="text-4xl md:text-5xl font-serif font-bold bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-400">Get Started</h2>
+                <p className="mt-4 max-w-3xl mx-auto text-lg text-gray-300">
+                    Empowering innovators starts with clarity. Navigate IP with confidence from development through commercialization.
                 </p>
-                <div className="mt-8">
-                     <Link href="https://ezc76sua2m5.typeform.com/to/qUFqcb1G" passHref>
-                        <Button size="lg" className="bg-white text-[#1A1F36] font-bold h-12 px-8 rounded-xl shadow-lg hover:bg-gray-200 transition-all duration-300 transform hover:scale-105">
-                            Request a Guided Walkthrough
-                        </Button>
-                     </Link>
+            </div>
+
+            <div className="p-10 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-xl shadow-xl text-center">
+                <LockClosedIcon className="h-12 w-12 text-white/80 mx-auto mb-6" />
+                <h3 className="text-3xl font-bold text-white mb-4">Security & Collaboration</h3>
+                <p className="text-gray-300 mb-6 max-w-3xl mx-auto">
+                    Confidentiality and data security are core commitments at ArticleIP. Work with legal counsel under <b className="text-white">attorney-client privilege</b> while our enterprise-grade security ensures your most sensitive data stays protected.
+                </p>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8 text-sm">
+                    <div className="p-4 rounded-xl bg-white/5 border border-white/10">
+                        <LockClosedIcon className="h-6 w-6 text-green-300 mb-2 mx-auto" />
+                        <p className="text-gray-300"><b className="text-white">Encrypted Environments:</b> All document processing and data transmission</p>
+                    </div>
+                    <div className="p-4 rounded-xl bg-white/5 border border-white/10">
+                        <ShieldCheckIcon className="h-6 w-6 text-green-300 mb-2 mx-auto" />
+                        <p className="text-gray-300"><b className="text-white">Multi-Factor Auth:</b> Role-based access controls for team security</p>
+                    </div>
+                    <div className="p-4 rounded-xl bg-white/5 border border-white/10">
+                        <ScaleIcon className="h-6 w-6 text-green-300 mb-2 mx-auto" />
+                        <p className="text-gray-300"><b className="text-white">Attorney-Client Privilege:</b> Protection when working with legal counsel</p>
+                    </div>
+                    <div className="p-4 rounded-xl bg-white/5 border border-white/10">
+                        <BuildingOfficeIcon className="h-6 w-6 text-green-300 mb-2 mx-auto" />
+                        <p className="text-gray-300"><b className="text-white">Enterprise Compliance:</b> SOC 2 & ISO 27001 customized deployments</p>
+                    </div>
                 </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8 text-sm">
+                    <div className="p-4 rounded-xl bg-white/10 border border-white/20">
+                        <p className="text-gray-300"><b className="text-white">Proactive Strategy:</b> Analyze prior art and structure claims for future growth</p>
+                    </div>
+                    <div className="p-4 rounded-xl bg-white/10 border border-white/20">
+                        <p className="text-gray-300"><b className="text-white">Legal Integration:</b> Seamlessly work with your legal advisors</p>
+                    </div>
+                    <div className="p-4 rounded-xl bg-white/10 border border-white/20">
+                        <p className="text-gray-300"><b className="text-white">Portfolio Tracking:</b> Monitor your IP as your business evolves</p>
+                    </div>
+                </div>
+
+                <Link href="https://ezc76sua2m5.typeform.com/to/qUFqcb1G" passHref>
+                    <Button size="lg" className="bg-white text-[#1A1F36] font-bold h-12 px-8 rounded-xl shadow-lg hover:bg-gray-200 transition-all duration-300 transform hover:scale-105">
+                        Request a Demo
+                    </Button>
+                </Link>
             </div>
         </motion.section>
     );

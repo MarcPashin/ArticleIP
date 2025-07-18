@@ -26,7 +26,7 @@ export const LandingHero = () => {
             transition={{ delay: 0.1, duration: 0.7 }}
             className="text-5xl md:text-7xl font-serif font-bold bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-400 leading-tight tracking-tight"
         >
-            The OS for Modern <br/>Intellectual Property
+            The Hub for Modern <br/>Intellectual Property
         </motion.h1>
 
         {/* Subtitle */}
@@ -36,7 +36,7 @@ export const LandingHero = () => {
             transition={{ delay: 0.2, duration: 0.7 }}
             className="mt-6 max-w-2xl mx-auto text-lg text-gray-300"
         >
-            Turn scientific discovery into protected assets. ArticleIP streamlines drafting, management, and strategy with an intelligent, secure platform built for innovators.
+            Turn technological discovery into protected assets. ArticleIP streamlines drafting, management, and strategy with an intelligent, secure platform built for innovators.
         </motion.p>
         
         {/* Buttons */}

@@ -50,12 +50,25 @@ export const RequestDemoModal = ({ isOpen, onClose }: RequestDemoModalProps) => 
         setSubmitStatus("idle");
 
         try {
-            const response = await fetch("/api/request-demo", {
+            // Prepare form data for FormSubmit
+            const formDataToSend = new FormData();
+            formDataToSend.append('firstName', formData.firstName);
+            formDataToSend.append('lastName', formData.lastName);
+            formDataToSend.append('email', formData.email);
+            formDataToSend.append('company', formData.company);
+            formDataToSend.append('role', formData.role);
+            formDataToSend.append('interests', formData.interests.join(', '));
+            formDataToSend.append('message', formData.message);
+
+            // FormSubmit configuration
+            formDataToSend.append('_replyto', formData.email);
+            formDataToSend.append('_subject', 'New Demo Request from ArticleIP Website');
+            formDataToSend.append('_captcha', 'false');
+            formDataToSend.append('_template', 'table');
+
+            const response = await fetch("https://formsubmit.co/ajax/4f6d5f9608e9b470aad844d293785e1a", {
                 method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(formData),
+                body: formDataToSend
             });
 
             if (response.ok) {
@@ -70,11 +83,11 @@ export const RequestDemoModal = ({ isOpen, onClose }: RequestDemoModalProps) => 
                     interests: [],
                     message: ""
                 });
-                // Close modal after 2 seconds
+                // Close modal after 3 seconds
                 setTimeout(() => {
                     onClose();
                     setSubmitStatus("idle");
-                }, 2000);
+                }, 3000);
             } else {
                 setSubmitStatus("error");
             }
@@ -90,20 +103,25 @@ export const RequestDemoModal = ({ isOpen, onClose }: RequestDemoModalProps) => 
 
     return (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-            {/* Light Backdrop */}
-            <div
-                className="absolute inset-0 bg-black/40 backdrop-blur-sm"
-                onClick={onClose}
-            />
+            {/* Background with Aurora Effect - More Blue */}
+            <div className="absolute inset-0 bg-[#1A2142]">
+                <div className="absolute -top-40 -right-40 w-[500px] h-[500px] bg-purple-500/12 rounded-full filter blur-3xl animate-blob"></div>
+                <div className="absolute -bottom-40 -left-40 w-[600px] h-[600px] bg-blue-500/15 rounded-full filter blur-3xl animate-blob animation-delay-2000"></div>
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-blue-600/8 rounded-full filter blur-3xl animate-pulse"></div>
+                <div
+                    className="absolute inset-0 bg-black/35 backdrop-blur-sm"
+                    onClick={onClose}
+                />
+            </div>
 
-            {/* Darker Blue Frosted Glass Modal */}
-            <div className="relative bg-gradient-to-br from-slate-900/90 via-blue-950/80 to-indigo-950/90 backdrop-blur-2xl border border-blue-400/20 rounded-3xl p-10 max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl ring-1 ring-blue-300/10">
+            {/* Modal with Enhanced Frosted Glass */}
+            <div className="relative bg-white/[0.08] border border-white/20 backdrop-blur-3xl rounded-3xl p-10 max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl ring-1 ring-white/10 before:absolute before:inset-0 before:bg-gradient-to-br before:from-white/10 before:via-transparent before:to-white/5 before:rounded-3xl before:pointer-events-none">
                 {/* Circular Close Button */}
                 <button
                     onClick={onClose}
-                    className="absolute top-6 right-6 w-12 h-12 flex items-center justify-center bg-blue-500/20 hover:bg-blue-400/30 rounded-full transition-all duration-300 backdrop-blur-sm border border-blue-300/40 hover:scale-110 group"
+                    className="absolute top-6 right-6 w-12 h-12 flex items-center justify-center bg-white/10 hover:bg-white/20 rounded-full transition-all duration-300 backdrop-blur-sm border border-white/20 hover:scale-110 group"
                 >
-                    <X className="w-5 h-5 text-blue-100 group-hover:text-white transition-colors" />
+                    <X className="w-5 h-5 text-gray-300 group-hover:text-white transition-colors" />
                 </button>
 
                 {/* Header */}
@@ -117,7 +135,7 @@ export const RequestDemoModal = ({ isOpen, onClose }: RequestDemoModalProps) => 
                     <h2 className="text-2xl font-semibold text-center text-white mb-2">
                         Request a Demo
                     </h2>
-                    <p className="text-gray-300 text-center text-sm">
+                    <p className="text-gray-400 text-center text-sm">
                         Transform your IP workflow with modern patent intelligence
                     </p>
                 </div>
@@ -140,7 +158,7 @@ export const RequestDemoModal = ({ isOpen, onClose }: RequestDemoModalProps) => 
                     {/* Name Fields */}
                     <div className="grid md:grid-cols-2 gap-4">
                         <div>
-                            <label className="block text-sm font-medium text-blue-100 mb-2">
+                            <label className="block text-sm font-medium text-gray-300 mb-2">
                                 First Name*
                             </label>
                             <input
@@ -149,12 +167,12 @@ export const RequestDemoModal = ({ isOpen, onClose }: RequestDemoModalProps) => 
                                 value={formData.firstName}
                                 onChange={handleInputChange}
                                 required
-                                className="w-full px-5 py-4 bg-blue-500/10 backdrop-blur-sm border border-blue-300/40 rounded-2xl focus:ring-2 focus:ring-blue-400/60 focus:border-blue-400/60 placeholder-blue-200/60 text-white transition-all duration-200 hover:bg-blue-400/15"
+                                className="w-full px-5 py-4 bg-white/[0.08] backdrop-blur-xl border border-white/20 rounded-2xl focus:ring-2 focus:ring-white/40 focus:border-white/40 placeholder-gray-400 text-white transition-all duration-200 hover:bg-white/[0.12] hover:border-white/30 shadow-lg ring-1 ring-white/5"
                                 placeholder="First Name"
                             />
                         </div>
                         <div>
-                            <label className="block text-sm font-medium text-blue-100 mb-2">
+                            <label className="block text-sm font-medium text-gray-300 mb-2">
                                 Last Name*
                             </label>
                             <input
@@ -163,7 +181,7 @@ export const RequestDemoModal = ({ isOpen, onClose }: RequestDemoModalProps) => 
                                 value={formData.lastName}
                                 onChange={handleInputChange}
                                 required
-                                className="w-full px-5 py-4 bg-blue-500/10 backdrop-blur-sm border border-blue-300/40 rounded-2xl focus:ring-2 focus:ring-blue-400/60 focus:border-blue-400/60 placeholder-blue-200/60 text-white transition-all duration-200 hover:bg-blue-400/15"
+                                className="w-full px-5 py-4 bg-white/[0.08] backdrop-blur-xl border border-white/20 rounded-2xl focus:ring-2 focus:ring-white/40 focus:border-white/40 placeholder-gray-400 text-white transition-all duration-200 hover:bg-white/[0.12] hover:border-white/30 shadow-lg ring-1 ring-white/5"
                                 placeholder="Last Name"
                             />
                         </div>
@@ -171,7 +189,7 @@ export const RequestDemoModal = ({ isOpen, onClose }: RequestDemoModalProps) => 
 
                     {/* Email */}
                     <div>
-                        <label className="block text-sm font-medium text-blue-100 mb-2">
+                        <label className="block text-sm font-medium text-gray-300 mb-2">
                             Email Address*
                         </label>
                         <input
@@ -180,7 +198,7 @@ export const RequestDemoModal = ({ isOpen, onClose }: RequestDemoModalProps) => 
                             value={formData.email}
                             onChange={handleInputChange}
                             required
-                            className="w-full px-5 py-4 bg-blue-500/10 backdrop-blur-sm border border-blue-300/40 rounded-2xl focus:ring-2 focus:ring-blue-400/60 focus:border-blue-400/60 placeholder-blue-200/60 text-white transition-all duration-200 hover:bg-blue-400/15"
+                            className="w-full px-5 py-4 bg-white/[0.08] backdrop-blur-xl border border-white/20 rounded-2xl focus:ring-2 focus:ring-white/40 focus:border-white/40 placeholder-gray-400 text-white transition-all duration-200 hover:bg-white/[0.12] hover:border-white/30 shadow-lg ring-1 ring-white/5"
                             placeholder="Email Address"
                         />
                     </div>
@@ -188,7 +206,7 @@ export const RequestDemoModal = ({ isOpen, onClose }: RequestDemoModalProps) => 
                     {/* Company and Role */}
                     <div className="grid md:grid-cols-2 gap-4">
                         <div>
-                            <label className="block text-sm font-medium text-blue-100 mb-2">
+                            <label className="block text-sm font-medium text-gray-300 mb-2">
                                 Company
                             </label>
                             <input
@@ -196,12 +214,12 @@ export const RequestDemoModal = ({ isOpen, onClose }: RequestDemoModalProps) => 
                                 name="company"
                                 value={formData.company}
                                 onChange={handleInputChange}
-                                className="w-full px-5 py-4 bg-blue-500/10 backdrop-blur-sm border border-blue-300/40 rounded-2xl focus:ring-2 focus:ring-blue-400/60 focus:border-blue-400/60 placeholder-blue-200/60 text-white transition-all duration-200 hover:bg-blue-400/15"
+                                className="w-full px-5 py-4 bg-white/[0.08] backdrop-blur-xl border border-white/20 rounded-2xl focus:ring-2 focus:ring-white/40 focus:border-white/40 placeholder-gray-400 text-white transition-all duration-200 hover:bg-white/[0.12] hover:border-white/30 shadow-lg ring-1 ring-white/5"
                                 placeholder="Company"
                             />
                         </div>
                         <div>
-                            <label className="block text-sm font-medium text-blue-100 mb-2">
+                            <label className="block text-sm font-medium text-gray-300 mb-2">
                                 Role
                             </label>
                             <input
@@ -209,7 +227,7 @@ export const RequestDemoModal = ({ isOpen, onClose }: RequestDemoModalProps) => 
                                 name="role"
                                 value={formData.role}
                                 onChange={handleInputChange}
-                                className="w-full px-5 py-4 bg-blue-500/10 backdrop-blur-sm border border-blue-300/40 rounded-2xl focus:ring-2 focus:ring-blue-400/60 focus:border-blue-400/60 placeholder-blue-200/60 text-white transition-all duration-200 hover:bg-blue-400/15"
+                                className="w-full px-5 py-4 bg-white/[0.08] backdrop-blur-xl border border-white/20 rounded-2xl focus:ring-2 focus:ring-white/40 focus:border-white/40 placeholder-gray-400 text-white transition-all duration-200 hover:bg-white/[0.12] hover:border-white/30 shadow-lg ring-1 ring-white/5"
                                 placeholder="Role"
                             />
                         </div>
@@ -217,22 +235,22 @@ export const RequestDemoModal = ({ isOpen, onClose }: RequestDemoModalProps) => 
 
                     {/* Interests */}
                     <div>
-                        <label className="block text-sm font-medium text-blue-100 mb-3">
+                        <label className="block text-sm font-medium text-gray-300 mb-3">
                             Interest
                         </label>
                         <div className="grid md:grid-cols-2 gap-3">
                             {interests.map((interest) => (
                                 <label
                                     key={interest}
-                                    className="flex items-center p-4 bg-blue-500/10 backdrop-blur-sm border border-blue-300/40 rounded-2xl cursor-pointer hover:bg-blue-400/15 transition-all duration-200 hover:scale-[1.02]"
+                                    className="flex items-center p-4 bg-white/[0.08] backdrop-blur-xl border border-white/20 rounded-2xl cursor-pointer hover:bg-white/[0.12] hover:border-white/30 transition-all duration-200 hover:scale-[1.02] shadow-lg ring-1 ring-white/5"
                                 >
                                     <input
                                         type="checkbox"
                                         checked={formData.interests.includes(interest)}
                                         onChange={() => handleInterestChange(interest)}
-                                        className="w-5 h-5 text-blue-400 bg-blue-500/10 border-blue-300/40 rounded-lg focus:ring-blue-400/60 focus:ring-2 transition-all duration-200"
+                                        className="w-5 h-5 text-white bg-white/5 border-white/20 rounded-lg focus:ring-white/30 focus:ring-2 transition-all duration-200"
                                     />
-                                    <span className="ml-3 text-blue-100 font-medium">{interest}</span>
+                                    <span className="ml-3 text-gray-300 font-medium">{interest}</span>
                                 </label>
                             ))}
                         </div>
@@ -240,7 +258,7 @@ export const RequestDemoModal = ({ isOpen, onClose }: RequestDemoModalProps) => 
 
                     {/* Message */}
                     <div>
-                        <label className="block text-sm font-medium text-blue-100 mb-2">
+                        <label className="block text-sm font-medium text-gray-300 mb-2">
                             Message
                         </label>
                         <textarea
@@ -248,7 +266,7 @@ export const RequestDemoModal = ({ isOpen, onClose }: RequestDemoModalProps) => 
                             value={formData.message}
                             onChange={handleInputChange}
                             rows={4}
-                            className="w-full px-5 py-4 bg-blue-500/10 backdrop-blur-sm border border-blue-300/40 rounded-2xl focus:ring-2 focus:ring-blue-400/60 focus:border-blue-400/60 placeholder-blue-200/60 text-white resize-none transition-all duration-200 hover:bg-blue-400/15"
+                            className="w-full px-5 py-4 bg-white/[0.08] backdrop-blur-xl border border-white/20 rounded-2xl focus:ring-2 focus:ring-white/40 focus:border-white/40 placeholder-gray-400 text-white resize-none transition-all duration-200 hover:bg-white/[0.12] hover:border-white/30 shadow-lg ring-1 ring-white/5"
                             placeholder="Type here..."
                         />
                     </div>
@@ -257,7 +275,7 @@ export const RequestDemoModal = ({ isOpen, onClose }: RequestDemoModalProps) => 
                     <button
                         type="submit"
                         disabled={isSubmitting}
-                        className="w-full py-5 bg-gradient-to-r from-blue-800 to-purple-800 hover:from-blue-900 hover:to-purple-900 disabled:from-gray-700 disabled:to-gray-700 text-white font-semibold rounded-2xl transition-all duration-300 text-lg shadow-2xl hover:shadow-blue-500/25 hover:scale-[1.02] backdrop-blur-sm border border-blue-600/30"
+                        className="w-full py-5 bg-white/[0.12] hover:bg-white/[0.18] disabled:bg-gray-700/50 text-white font-semibold rounded-2xl transition-all duration-300 text-lg shadow-2xl hover:scale-[1.02] backdrop-blur-xl border border-white/30 hover:border-white/40 ring-1 ring-white/10"
                     >
                         {isSubmitting ? "SUBMITTING..." : "REQUEST DEMO"}
                     </button>

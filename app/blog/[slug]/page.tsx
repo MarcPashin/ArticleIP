@@ -78,8 +78,15 @@ export default function SinglePostPage({ params }: PageProps) {
             />
           </div>
 
-          <div className="prose prose-lg dark:prose-invert mx-auto">
-            <MDXContent />
+          <div className="prose prose-lg dark:prose-invert mx-auto max-w-none">
+            {post.htmlContent ? (
+              <div 
+                dangerouslySetInnerHTML={{ __html: post.htmlContent }}
+                className="blog-content"
+              />
+            ) : (
+              <MDXContent />
+            )}
           </div>
         </article>
       </div>

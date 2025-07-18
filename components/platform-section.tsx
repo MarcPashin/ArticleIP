@@ -9,10 +9,30 @@ import {
 } from '@heroicons/react/24/outline';
 
 const platformFeatures = [
-    { id: 'platform-drafting', icon: CpuChipIcon, title: 'Patent Drafting', desc: 'Transform documents and ideas into USPTO-aligned drafts with AI-assisted claim generation and co-authoring.' },
-    { id: 'platform-management', icon: CircleStackIcon, title: 'Patent Management', desc: 'Centralize your portfolio. Track families, manage continuations, and collaborate across teams with role-based access.' },
-    { id: 'platform-analytics', icon: ChartBarIcon, title: 'Analytics & Insights', desc: 'Evaluate market landscapes, assess patentability, and uncover whitespace opportunities with data-driven reports.' },
-    { id: 'platform-bespoke', icon: WrenchScrewdriverIcon, title: 'Bespoke Solutions', desc: 'Deploy custom-tuned models for specialized industries like biotech, ensuring maximum relevance and confidentiality.' }
+    { 
+        id: 'platform-drafting', 
+        icon: CpuChipIcon, 
+        title: 'Patent Drafting', 
+        desc: 'Transform ideas into USPTO-aligned drafts with AI-powered claim generation. Upload documents, diagrams, and collaborate in real-time to create ready-to-file applications.' 
+    },
+    { 
+        id: 'platform-management', 
+        icon: CircleStackIcon, 
+        title: 'Patent Management', 
+        desc: 'Centralized portfolio management with powerful analysis tools. Track patent families, manage continuations, and enable secure collaboration across legal, R&D, and executive teams.' 
+    },
+    { 
+        id: 'platform-analytics', 
+        icon: ChartBarIcon, 
+        title: 'Analytics & Insights', 
+        desc: 'Generate competitive assessments and identify market opportunities. Evaluate novelty risk and strategic value with retrieval-augmented search across global patent records.' 
+    },
+    { 
+        id: 'platform-bespoke', 
+        icon: WrenchScrewdriverIcon, 
+        title: 'Custom Solutions', 
+        desc: 'Deploy tailored ML models for specialized industries. Private deployments with custom tuning ensure maximum confidentiality and relevance for your unique needs.' 
+    }
 ];
 
 export const PlatformSection = () => {
@@ -34,11 +54,7 @@ export const PlatformSection = () => {
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
         >
-            <div className="text-center mb-12">
-                 {/* CORRECTED: High-contrast heading */}
-                 <h2 className="text-4xl md:text-5xl font-serif font-bold bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-400">Your IP Command Center</h2>
-                 <p className="mt-4 max-w-2xl mx-auto text-lg text-gray-400">From initial draft to portfolio strategy, ArticleIP integrates every step of the patent lifecycle.</p>
-            </div>
+
 
             {/* CORRECTED: Dark "glassy" cards */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">

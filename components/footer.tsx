@@ -23,27 +23,27 @@ export const Footer = () => {
                         <h3 className="text-white font-semibold mb-4">Platform</h3>
                         <ul className="space-y-2">
                             <li>
-                                <Link href="/platform" className="text-gray-400 hover:text-white text-sm transition-colors">
+                                <Link href="#platform" className="text-gray-400 hover:text-white text-sm transition-colors">
                                     Overview
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/platform/patent-drafting" className="text-gray-400 hover:text-white text-sm transition-colors">
+                                <Link href="#platform-drafting" className="text-gray-400 hover:text-white text-sm transition-colors">
                                     Patent Drafting
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/platform/patent-management" className="text-gray-400 hover:text-white text-sm transition-colors">
+                                <Link href="#platform-management" className="text-gray-400 hover:text-white text-sm transition-colors">
                                     Patent Management
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/platform/analytics" className="text-gray-400 hover:text-white text-sm transition-colors">
+                                <Link href="#platform-analytics" className="text-gray-400 hover:text-white text-sm transition-colors">
                                     Analytics
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/platform/bespoke-solutions" className="text-gray-400 hover:text-white text-sm transition-colors">
+                                <Link href="#platform-bespoke" className="text-gray-400 hover:text-white text-sm transition-colors">
                                     Bespoke Solutions
                                 </Link>
                             </li>
