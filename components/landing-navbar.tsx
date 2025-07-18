@@ -1,46 +1,67 @@
+// components/landing-navbar.tsx
+
 "use client";
 
-import { Montserrat } from "next/font/google";
-import Image from "next/image";
 import Link from "next/link";
-import { useAuth } from "@clerk/nextjs";
+import { useState } from "react";
+import { ChevronDownIcon } from '@heroicons/react/24/solid';
+import { RequestDemoModal } from "./request-demo-modal";
 
-import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button"
+const NavLink = ({ href, children }: { href: string; children: React.ReactNode; }) => (
+    <Link href={href} className="text-sm font-medium text-gray-300 hover:text-white transition-colors">
+       {children}
+    </Link>
+);
 
-const font = Montserrat({
-    weight: "600",
-    subsets: ["latin"]
-});
+const NavLinkDropdown = ({ title, children }: { title: string; children: React.ReactNode; }) => (
+    <div className="relative group">
+        <button className="inline-flex items-center text-sm font-medium text-gray-300 group-hover:text-white transition-colors duration-200">
+            <span>{title}</span>
+            <ChevronDownIcon className="w-4 h-4 ml-1.5 transition-transform duration-300 group-hover:rotate-180" />
+        </button>
+        <div className="absolute left-0 top-full mt-3 w-56 p-2 rounded-xl bg-gradient-to-b from-[#2a304e] to-[#1e243f] border border-white/10 shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+            {children}
+        </div>
+    </div>
+);
 
-export const LandingNavbar = 
-() => {
-    
+const DropdownItem = ({ href, children }: { href: string; children: React.ReactNode }) => (
+    <a href={href} className="block text-left px-4 py-2 text-sm text-gray-200 hover:bg-white/10 hover:text-white rounded-lg transition-colors">
+       {children}
+   </a>
+);
+
+export const LandingNavbar = () => {
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     return (
-        <nav className="bg-[#111827] p-4 bg-transparent flex items-center justify-between">
-    <Link href="/" className="flex items-center">
-        <div className="text-4xl font-serif font-bold text-black tracking-tight">
-            ArticleIP
-        </div>
-    </Link>
-
-    <div className="flex items-center gap-x-2">
-    <a href="https://app.articleip.com">
-        <Button 
-            variant="articleipSolid" 
-            className="group relative overflow-hidden shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300 bg-black text-white hover:bg-[#feefd4] hover:text-black border-2 border-black h-12 px-8 text-lg font-medium"
-        >
-            Get Started
-        </Button>
-    </a>
-</div>
-        </nav>
-    )
-}
-
-//<div className="flex items-center gap-x-2">
-           
-//
-//
-
+        <>
+            <header className="fixed top-0 left-0 w-full z-50 pt-4">
+                <nav className="mx-auto max-w-7xl px-6 py-4 rounded-2xl bg-white/5 backdrop-blur-lg border border-white/10 shadow-md">
+                    <div className="flex items-center justify-between">
+                        <Link href="/" className="text-2xl font-serif font-bold tracking-tight text-white">
+                            ArticleIP
+                        </Link>
+                        <div className="hidden md:flex items-center gap-x-8">
+                            <NavLink href="/#platform">Platform</NavLink>
+                            <NavLink href="/#company">About</NavLink>
+                            <NavLink href="/#resources">Resources</NavLink>
+                            <NavLink href="/blog">Blog</NavLink>
+                        </div>
+                        <button 
+                            onClick={() => setIsModalOpen(true)}
+                            className="hidden md:inline-flex items-center justify-center px-5 py-2.5 rounded-xl text-sm font-semibold text-white bg-white/10 hover:bg-white/20 border border-white/20 shadow-lg backdrop-blur-sm transition-all duration-300 transform hover:scale-105"
+                        >
+                            Request a Demo <span className="ml-2">→</span>
+                        </button>
+                    </div>
+                </nav>
+            </header>
+            
+            <RequestDemoModal 
+                isOpen={isModalOpen} 
+                onClose={() => setIsModalOpen(false)} 
+            />
+        </>
+    );
+};

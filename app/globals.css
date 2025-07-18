@@ -1,83 +1,116 @@
+/* In your app/globals.css */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-html,
-body,
-:root {
-  height: 100%;
+/* Set the default dark background and text color for the entire app */
+body {
+    background-color: #1A1F36;
+    color: theme('colors.gray.200'); /* Use a nice off-white for text */
 }
 
-@layer base {
-  :root {
-    /* Warmer background and soft blue accents */
-    --background: 40 20% 90%; /* Light warm background */
-    --foreground: 220 50% 15%; /* Darker blue text */
-
-    --card: 40 20% 90%;
-    --card-foreground: 220 50% 15%;
-
-    --popover: 40 20% 90%;
-    --popover-foreground: 220 50% 15%;
-
-    --primary: 220 60% 40%; /* Soft blue */
-    --primary-foreground: 220 30% 95%; /* Light blue text */
-
-    --secondary: 220 30% 90%; /* Lighter blue */
-    --secondary-foreground: 220 50% 15%;
-
-    --muted: 220 30% 90%; /* Light muted background */
-    --muted-foreground: 220 15% 40%; /* Muted blue text */
-
-    --accent: 220 30% 90%;
-    --accent-foreground: 220 50% 15%;
-
-    --destructive: 0 75% 55%; /* Soft red */
-    --destructive-foreground: 220 30% 95%;
-
-    --border: 220 15% 80%;
-    --input: 220 15% 80%;
-    --ring: 220 50% 15%;
-
-    --radius: 0.5rem;
-  }
-
-  .dark {
-    --background: 220 10% 10%; /* Dark background */
-    --foreground: 220 30% 95%; /* Light text */
-
-    --card: 220 10% 10%;
-    --card-foreground: 220 30% 95%;
-
-    --popover: 220 10% 10%;
-    --popover-foreground: 220 30% 95%;
-
-    --primary: 220 30% 95%;
-    --primary-foreground: 220 60% 40%;
-
-    --secondary: 220 10% 25%;
-    --secondary-foreground: 220 30% 95%;
-
-    --muted: 220 10% 25%;
-    --muted-foreground: 220 15% 60%;
-
-    --accent: 220 10% 25%;
-    --accent-foreground: 220 30% 95%;
-
-    --destructive: 0 50% 35%; /* Darker red */
-    --destructive-foreground: 220 30% 95%;
-
-    --border: 220 10% 25%;
-    --input: 220 10% 25%;
-    --ring: 220 20% 80%;
-  }
+.font-serif {
+    font-family: 'Merriweather', serif; /* Or your preferred serif font */
 }
 
-@layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
+/* --- Keep the blob animation styles as they were --- */
+@keyframes blob {
+  0% { transform: translate(0px, 0px) scale(1); }
+  33% { transform: translate(30px, -50px) scale(1.1); }
+  66% { transform: translate(-20px, 20px) scale(0.9); }
+  100% { transform: translate(0px, 0px) scale(1); }
+}
+
+.animate-blob { animation: blob 8s infinite; }
+.animation-delay-2000 { animation-delay: 2s; }
+.animation-delay-4000 { animation-delay: 4s; }
+
+/* --- Blog Content Styling --- */
+.blog-content {
+  @apply text-gray-200 leading-relaxed;
+}
+
+.blog-content h1 {
+  @apply text-4xl font-bold text-white mb-6 mt-8 font-serif;
+}
+
+.blog-content h2 {
+  @apply text-3xl font-bold text-white mb-4 mt-8 font-serif;
+}
+
+.blog-content h3 {
+  @apply text-2xl font-semibold text-white mb-3 mt-6;
+}
+
+.blog-content h4 {
+  @apply text-xl font-semibold text-gray-100 mb-2 mt-4;
+}
+
+.blog-content p {
+  @apply text-gray-300 mb-4 leading-relaxed text-lg;
+}
+
+.blog-content strong, .blog-content b {
+  @apply text-white font-semibold;
+}
+
+.blog-content em, .blog-content i {
+  @apply text-gray-200 italic;
+}
+
+.blog-content ul {
+  @apply list-disc list-inside mb-4 space-y-2;
+}
+
+.blog-content ol {
+  @apply list-decimal list-inside mb-4 space-y-2;
+}
+
+.blog-content li {
+  @apply text-gray-300 leading-relaxed;
+}
+
+.blog-content li strong {
+  @apply text-white;
+}
+
+.blog-content blockquote {
+  @apply border-l-4 border-blue-400 pl-4 italic text-gray-300 bg-white/5 py-2 my-4 rounded-r-lg;
+}
+
+.blog-content code {
+  @apply bg-gray-800 text-blue-300 px-2 py-1 rounded text-sm font-mono;
+}
+
+.blog-content pre {
+  @apply bg-gray-900 p-4 rounded-lg overflow-x-auto mb-4;
+}
+
+.blog-content pre code {
+  @apply bg-transparent p-0;
+}
+
+.blog-content a {
+  @apply text-blue-400 hover:text-blue-300 underline transition-colors;
+}
+
+.blog-content hr {
+  @apply border-gray-600 my-8;
+}
+
+.blog-content table {
+  @apply w-full border-collapse border border-gray-600 mb-4;
+}
+
+.blog-content th {
+  @apply bg-gray-800 text-white font-semibold p-3 border border-gray-600;
+}
+
+.blog-content td {
+  @apply p-3 border border-gray-600 text-gray-300;
+}
+
+.blog-content img {
+  @apply rounded-lg shadow-lg mb-4 max-w-full h-auto;
 }
