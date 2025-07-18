@@ -2,8 +2,8 @@
 
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
-import { allPosts, Post } from 'contentlayer/generated';
-import { useMDXComponent } from 'next-contentlayer/hooks';
+import { getAllPosts, getPostBySlug, Post } from '@/lib/blog';
+import { MDXRemote } from 'next-mdx-remote/rsc';
 import { format } from 'date-fns';
 import BlogLayout from '../../../components/BlogLayout';
 
@@ -18,7 +18,7 @@ type PageProps = {
 // GENERATE METADATA - For SEO
 // ===============================================
 export async function generateMetadata({ params }: PageProps) {
-  const post = allPosts.find((p) => p.slug === params.slug);
+  const post = getPostBySlug(params.slug);
 
   if (!post) {
     return { title: 'Post Not Found' };
@@ -35,10 +35,10 @@ export async function generateMetadata({ params }: PageProps) {
 // THIS IS THE CRITICAL FIX
 // ===============================================
 export async function generateStaticParams(): Promise<PageProps['params'][]> {
-  // We must ensure allPosts is an array and then map it.
+  // We must ensure getAllPosts() is an array and then map it.
   // This explicitly returns an array of objects, e.g., [{ slug: '...' }, { slug: '...' }]
   // which is exactly what Next.js expects.
-  return allPosts.map((post) => ({
+  return getAllPosts().map((post) => ({
     slug: post.slug,
   }));
 }
@@ -47,13 +47,11 @@ export async function generateStaticParams(): Promise<PageProps['params'][]> {
 // THE PAGE COMPONENT
 // ===============================================
 export default function SinglePostPage({ params }: PageProps) {
-  const post = allPosts.find((p) => p.slug === params.slug);
+  const post = getPostBySlug(params.slug);
 
   if (!post) {
     notFound(); // Triggers a 404 page if the post isn't found
   }
-
-  const MDXContent = useMDXComponent(post.body.code);
 
   return (
     <BlogLayout>
@@ -85,7 +83,7 @@ export default function SinglePostPage({ params }: PageProps) {
                 className="blog-content"
               />
             ) : (
-              <MDXContent />
+              <MDXRemote source={post.body.code} />
             )}
           </div>
         </article>

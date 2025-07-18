@@ -1,7 +1,7 @@
 // app/blog/page.tsx
 
 import Link from 'next/link';
-import { allPosts, Post } from 'contentlayer/generated';
+import { getAllPosts, Post } from '@/lib/blog';
 import { compareDesc } from 'date-fns';
 // import BlogLayout from './components/BlogLayout'; // Import the new layout
 import BlogLayout from '@/components/BlogLayout'; // Corrected import path
@@ -13,7 +13,7 @@ export const metadata = {
 }
 
 export default function BlogIndexPage() {
-  const posts = allPosts.sort((a: Post, b: Post) =>
+  const posts = getAllPosts().sort((a: Post, b: Post) =>
     compareDesc(new Date(a.date), new Date(b.date))
   );
 

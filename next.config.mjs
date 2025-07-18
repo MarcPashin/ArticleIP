@@ -1,7 +1,5 @@
 // next.config.mjs
 
-import { withContentlayer } from 'next-contentlayer';
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   // Enables React's Strict Mode. This is a best practice for catching
@@ -30,6 +28,4 @@ const nextConfig = {
   },
 };
 
-// IMPORTANT: The withContentlayer wrapper must be the final export.
-// It takes your nextConfig object and adds Contentlayer's build capabilities to it.
-export default withContentlayer(nextConfig);
+export default nextConfig;

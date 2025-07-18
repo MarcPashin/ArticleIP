@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
-import type { Post } from 'contentlayer/generated'
+import type { Post } from '@/lib/blog'
 import { format } from 'date-fns'
 
 type BlogPostCardProps = {
