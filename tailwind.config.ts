@@ -19,7 +19,8 @@ const config = {
     },
     extend: {
       fontFamily: {
-        serif: ['Gelasio', 'serif'],
+        serif: ['Gelasio', 'serif'],  
+        sans: ['Inter', 'sans-serif'],
       },
       colors: {
         articleip: {
