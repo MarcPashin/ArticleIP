@@ -8,7 +8,7 @@ import { ResourcesSection } from "@/components/resources-section";
 import { StructuredData } from "@/components/structured-data";
 
 export const metadata = {
-  title: "AI-Powered Patent Generation Platform",
+  title: "ArticleIP | AI-Powered Patent Generation Platform",
   description: "Generate professional patent applications in minutes with ArticleIP's advanced AI technology. Trusted by 10,000+ inventors, researchers, and IP attorneys worldwide. Start your free trial today.",
   keywords: [
     "AI patent generator",
