@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
+import { RequestDemoButton } from './request-demo-button';
 import { 
     LockClosedIcon,
     ShieldCheckIcon,
@@ -59,7 +60,7 @@ export const ResourcesSection = () => {
                     </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8 text-sm">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
                     <div className="p-4 rounded-xl bg-white/10 border border-white/20">
                         <p className="text-gray-300"><b className="text-white">Proactive Strategy:</b> Analyze prior art and structure claims for future growth</p>
                     </div>
@@ -70,12 +71,13 @@ export const ResourcesSection = () => {
                         <p className="text-gray-300"><b className="text-white">Portfolio Tracking:</b> Monitor your IP as your business evolves</p>
                     </div>
                 </div>
+            </div>
 
-                <Link href="https://ezc76sua2m5.typeform.com/to/qUFqcb1G" passHref>
-                    <Button size="lg" className="bg-white text-[#1A1F36] font-bold h-12 px-8 rounded-xl shadow-lg hover:bg-gray-200 transition-all duration-300 transform hover:scale-105">
-                        Request a Demo
-                    </Button>
-                </Link>
+            {/* Request Demo Button - Outside the security section */}
+            <div className="text-center mt-8">
+                <RequestDemoButton className="inline-flex items-center justify-center px-8 py-3 rounded-xl text-sm font-semibold text-white bg-white/10 hover:bg-white/20 border border-white/20 shadow-lg backdrop-blur-sm transition-all duration-300 transform hover:scale-105">
+                    Request a Demo <span className="ml-2">→</span>
+                </RequestDemoButton>
             </div>
         </motion.section>
     );

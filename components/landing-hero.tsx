@@ -4,6 +4,8 @@ import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { SparklesIcon } from '@heroicons/react/24/solid';
 import Link from 'next/link';
+import { SubtleBackers } from './subtle-backers';
+import { RequestDemoButton } from './request-demo-button';
 
 export const LandingHero = () => {
   return (
@@ -47,11 +49,9 @@ export const LandingHero = () => {
             className="mt-10 flex flex-col sm:flex-row justify-center items-center gap-4"
         >
              {/* CORRECTED: White button with dark text */}
-             <Link href="https://ezc76sua2m5.typeform.com/to/qUFqcb1G" passHref>
-                <Button size="lg" className="w-full sm:w-auto bg-white text-[#1A1F36] font-bold h-12 px-8 rounded-xl shadow-lg hover:bg-gray-200 transition-all duration-300 transform hover:scale-105">
-                    Request a Demo
-                </Button>
-             </Link>
+             <RequestDemoButton className="w-full sm:w-auto bg-white text-[#1A1F36] font-bold h-12 px-8 rounded-xl shadow-lg hover:bg-gray-200 transition-all duration-300 transform hover:scale-105 inline-flex items-center justify-center text-lg">
+                Request a Demo
+             </RequestDemoButton>
              
              {/* CORRECTED: Dark "glassy" outline button */}
              <Link href="https://app.articleip.com" passHref>
@@ -60,6 +60,9 @@ export const LandingHero = () => {
                 </Button>
              </Link>
         </motion.div>
+
+        {/* Subtle Backers */}
+        <SubtleBackers />
     </section>
   );
 };

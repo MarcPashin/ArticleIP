@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Button } from "./ui/button";
 import Link from "next/link";
+import { RequestDemoButton } from "./request-demo-button";
 
 export const HomePageContent = () => {
   return (
@@ -100,14 +101,9 @@ export const HomePageContent = () => {
                   <li key={idx}>{point}</li>
                 ))}
               </ul>
-              <Link href="https://ezc76sua2m5.typeform.com/to/qUFqcb1G" passHref>
-                <Button
-                  variant="articleip"
-                  className="mt-4 w-full bg-[#1a1f36] text-white hover:bg-black"
-                >
-                  {section.cta}
-                </Button>
-              </Link>
+              <RequestDemoButton className="mt-4 w-full bg-[#1a1f36] text-white hover:bg-black inline-flex items-center justify-center px-4 py-2 rounded-md font-medium transition-colors">
+                {section.cta}
+              </RequestDemoButton>
             </div>
           ))}
         </motion.div>
