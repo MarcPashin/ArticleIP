@@ -8,8 +8,41 @@ import BlogLayout from '@/components/BlogLayout'; // Corrected import path
 import { BlogPostCard } from '@/components/blog-post-card';
 
 export const metadata = {
-  title: "Blog | ArticleIP",
-  description: "Insights on intellectual property, technology, and the future of innovation.",
+  title: "Patent & IP Innovation Blog",
+  description: "Expert insights on intellectual property, patent strategies, AI in legal tech, and innovation trends. Stay ahead with ArticleIP's comprehensive guides on patent generation and IP protection.",
+  keywords: [
+    "patent blog",
+    "intellectual property insights",
+    "IP strategy",
+    "patent trends",
+    "innovation news",
+    "AI legal technology",
+    "patent law updates",
+    "IP protection strategies"
+  ],
+  openGraph: {
+    title: "Patent & IP Innovation Blog | ArticleIP",
+    description: "Expert insights on intellectual property, patent strategies, AI in legal tech, and innovation trends from the ArticleIP team.",
+    url: "https://www.articleip.com/blog",
+    images: [
+      {
+        url: "/articleip_redesign.png",
+        width: 1200,
+        height: 630,
+        alt: "ArticleIP Blog - Patent and IP Innovation Insights",
+      },
+    ],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Patent & IP Innovation Blog | ArticleIP",
+    description: "Expert insights on intellectual property, patent strategies, and AI in legal tech.",
+    images: ["/articleip_redesign.png"],
+  },
+  alternates: {
+    canonical: "https://www.articleip.com/blog",
+  },
 }
 
 export default function BlogIndexPage() {

@@ -2,6 +2,8 @@
 import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
+import { serialize } from 'next-mdx-remote/serialize'
+import { MDXRemoteSerializeResult } from 'next-mdx-remote'
 
 export interface Post {
   _id: string
@@ -12,9 +14,8 @@ export interface Post {
   htmlContent?: string
   url: string
   slug: string
-  body: {
-    code: string
-  }
+  content: string
+  serializedContent?: MDXRemoteSerializeResult
 }
 
 const postsDirectory = path.join(process.cwd(), 'content/posts')
@@ -38,9 +39,7 @@ export function getAllPosts(): Post[] {
         description: data.description,
         mainImage: data.mainImage,
         htmlContent: data.htmlContent,
-        body: {
-          code: content
-        }
+        content
       } as Post
     })
 
@@ -50,6 +49,17 @@ export function getAllPosts(): Post[] {
 export function getPostBySlug(slug: string): Post | undefined {
   const posts = getAllPosts()
   return posts.find((post) => post.slug === slug)
+}
+
+export async function getSerializedPost(slug: string): Promise<Post | undefined> {
+  const post = getPostBySlug(slug)
+  if (!post) return undefined
+
+  const serializedContent = await serialize(post.content)
+  return {
+    ...post,
+    serializedContent
+  }
 }
 
 export const allPosts = getAllPosts()

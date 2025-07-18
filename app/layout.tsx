@@ -19,27 +19,73 @@ const fontSerif = Merriweather({
 });
 
 
-// 2. Your excellent metadata object is preserved
+// 2. Comprehensive SEO metadata with optimized tags
 export const metadata: Metadata = {
-  title: "ArticleIP | AI-Powered Patent Generation Tool",
-  description: "ArticleIP is the ultimate AI-powered tool for generating accurate patents, trusted by top researchers and attorneys worldwide. Streamline your innovation process today!",
-  metadataBase: new URL("https://www.articleip.com"), // Your production domain
+  title: {
+    default: "ArticleIP | AI-Powered Patent Generation Tool",
+    template: "%s | ArticleIP"
+  },
+  description: "Transform your innovations into professional patents with ArticleIP's AI-powered platform. Trusted by researchers, inventors, and IP attorneys worldwide. Generate accurate patent applications in minutes, not months.",
+  keywords: [
+    "patent generation",
+    "AI patent tool",
+    "intellectual property",
+    "patent application",
+    "patent writing",
+    "IP automation",
+    "patent attorney",
+    "innovation protection",
+    "patent drafting",
+    "AI legal tech"
+  ],
+  authors: [{ name: "ArticleIP Team" }],
+  creator: "ArticleIP",
+  publisher: "ArticleIP",
+  metadataBase: new URL("https://www.articleip.com"),
+  alternates: {
+    canonical: "https://www.articleip.com",
+  },
   openGraph: {
     title: "ArticleIP | AI-Powered Patent Generation Tool",
-    description: "ArticleIP is the ultimate AI-powered tool for generating accurate patents, trusted by top researchers and attorneys worldwide. Streamline your innovation process today!",
+    description: "Transform your innovations into professional patents with ArticleIP's AI-powered platform. Trusted by researchers, inventors, and IP attorneys worldwide.",
     url: "https://www.articleip.com",
+    siteName: "ArticleIP",
     images: [
       {
-        url: "/ArticleIPPreview.png", // Use a relative path, Next.js will make it absolute
+        url: "/articleip_redesign.png",
         width: 1200,
         height: 630,
-        alt: "A Patent Generation Tool For Everyone",
+        alt: "ArticleIP - AI-Powered Patent Generation Platform",
       },
     ],
+    locale: "en_US",
     type: "website",
   },
-   icons: {
-    icon: "/favicon.ico", // The modern way to set favicons
+  twitter: {
+    card: "summary_large_image",
+    title: "ArticleIP | AI-Powered Patent Generation Tool",
+    description: "Transform your innovations into professional patents with AI. Trusted by researchers and IP attorneys worldwide.",
+    images: ["/articleip_redesign.png"],
+    creator: "@ArticleIP",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/favicon.ico",
+  },
+  verification: {
+    google: "your-google-verification-code", // Replace with actual verification code
   },
 };
 
