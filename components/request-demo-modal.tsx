@@ -22,10 +22,10 @@ export const RequestDemoModal = ({ isOpen, onClose }: RequestDemoModalProps) => 
     const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
 
     const interests = [
-        "Prior Art Search",
+        "Provisional Technical Patents",
         "EoU and Claim Charts",
         "Portfolio Management",
-        "Scientific Research",
+        "Translation",
         "Press",
         "Other"
     ];
