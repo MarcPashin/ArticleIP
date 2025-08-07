@@ -19,6 +19,12 @@ const advisors = [
         desc: 'Physician entrepreneur, CEO of Pandia Health. Clinical Associate Professor at Stanford Medicine with 20+ years in adolescent medicine.',
         image: '/advisors/siphiayen.jpg'
     },
+    { 
+        name: 'Dr. Soohyun Bae', 
+        desc: 'Founder of Podonos Inaugural Google AI fellow, YC alum, ML PhD from Georgia Tech.',
+        image: '/advisors/soohyun.jpeg'
+    },
+    
 ];
 
 export const CompanySection = () => {
@@ -41,8 +47,8 @@ export const CompanySection = () => {
                 <p className="mt-6 max-w-4xl mx-auto text-lg text-gray-300 leading-relaxed">Our mission is to close the gap between brilliant ideas and meaningful intellectual property protection.</p>
             </div>
              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
-                <div className="space-y-6">
-                    <div className="p-8 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-xl">
+                <div className="space-y-20">
+                    <div className="p-8 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-xl mt-9">
                         <h3 className="text-2xl font-bold text-white mb-4">About ArticleIP</h3>
                         <p className="text-gray-300 mb-6">Founded by Kristine Pashin, Kristin Smith, and Jordan Leung, ArticleIP transforms how innovators protect intellectual property. Born from experiencing the fragmented, costly patenting process firsthand, we built a platform that makes patent workflows accessible and empowering for technical teams of all sizes.</p>
                         <div className="pt-6 border-t border-white/10">
@@ -53,6 +59,7 @@ export const CompanySection = () => {
                                 <li className="flex items-start gap-x-2"><span className="text-blue-300 mt-1">✓</span> <span><b className="text-gray-200">Rigor:</b> Combine technology, law, and science with accuracy and transparency</span></li>
                                 <li className="flex items-start gap-x-2"><span className="text-blue-300 mt-1">✓</span> <span><b className="text-gray-200">Collaboration:</b> Connect teams and make IP management effortless</span></li>
                                 <li className="flex items-start gap-x-2"><span className="text-blue-300 mt-1">✓</span> <span><b className="text-gray-200">Innovation:</b> Deliver modern solutions without compromising reliability</span></li>
+                                <li className="flex items-start gap-x-2"><span className="text-blue-300 mt-1">✓</span> <span><b className="text-gray-200">Accessibility:</b> Make professional IP services available to innovators at every stage</span></li>
                             </ul>
                         </div>
                     </div>
