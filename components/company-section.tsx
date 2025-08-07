@@ -21,7 +21,7 @@ const advisors = [
     },
     { 
         name: 'Dr. Soohyun Bae', 
-        desc: 'Founder of Podonos Inaugural Google AI fellow, YC alum, ML PhD from Georgia Tech.',
+        desc: 'Founder of Podonos, Inaugural Google AI fellow, YC alum, ML PhD from Georgia Tech.',
         image: '/advisors/soohyun.jpeg'
     },
     
